@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌍 Nuestro Planeta — Medio Ambiente</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #2d8a4e;
+    --verde-claro: #4caf72;
+    --verde-lima: #8bc34a;
+    --azul: #1a7db5;
+    --azul-claro: #64b5e8;
+    --tierra: #a0522d;
+    --sol: #f9a825;
+    --rojo: #e53935;
+    --blanco: #f0fdf4;
+    --oscuro: #1a2e1a;
+    --gris: #e8f5e9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--blanco);
+    color: var(--oscuro);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #0d4f2f 0%, #1a7040 40%, #1a7db5 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; text-align: center; padding: 2rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3C/svg%3E") repeat;
+  }
+
+  .floating-emojis span {
+    position: absolute; font-size: clamp(1.5rem, 3vw, 2.5rem);
+    animation: floatUp 8s ease-in-out infinite;
+    opacity: 0.7;
+  }
+  .floating-emojis span:nth-child(1){left:5%;top:20%;animation-delay:0s;}
+  .floating-emojis span:nth-child(2){left:15%;top:70%;animation-delay:1.5s;}
+  .floating-emojis span:nth-child(3){left:80%;top:15%;animation-delay:0.8s;}
+  .floating-emojis span:nth-child(4){left:90%;top:60%;animation-delay:2.3s;}
+  .floating-emojis span:nth-child(5){left:50%;top:85%;animation-delay:1s;}
+  .floating-emojis span:nth-child(6){left:70%;top:40%;animation-delay:3s;}
+
+  @keyframes floatUp {
+    0%,100%{transform:translateY(0) rotate(0deg);}
+    50%{transform:translateY(-20px) rotate(10deg);}
+  }
+
+  .hero-badge {
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+    color: #fff; padding: .4rem 1.2rem; border-radius: 99px; font-size: .85rem;
+    font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    margin-bottom: 1.5rem; display: inline-block; backdrop-filter: blur(8px);
+  }
+
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    color: #fff; line-height: 1.05;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    margin-bottom: 1rem;
+  }
+  .hero h1 span { color: var(--verde-lima); }
+
+  .hero p {
+    color: rgba(255,255,255,0.88); font-size: clamp(1rem, 2.5vw, 1.3rem);
+    max-width: 600px; line-height: 1.7; margin-bottom: 2.5rem;
+  }
+
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .btn {
+    padding: .8rem 2rem; border-radius: 99px; font-family: 'Nunito', sans-serif;
+    font-size: 1rem; font-weight: 800; cursor: pointer; border: none;
+    transition: transform .2s, box-shadow .2s; text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary { background: var(--verde-lima); color: #1a2e1a; }
+  .btn-secondary { background: rgba(255,255,255,0.15); color: #fff; border: 2px solid rgba(255,255,255,0.5); }
+  .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.25); }
+
+  .scroll-hint {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.6); font-size: .85rem; text-align: center;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+    border-bottom: 3px solid var(--verde-claro);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: .8rem 2rem; flex-wrap: wrap; gap: .5rem;
+  }
+  .nav-logo { font-family: 'Fredoka One', cursive; font-size: 1.4rem; color: var(--verde); }
+  .nav-links { display: flex; gap: .5rem; flex-wrap: wrap; }
+  .nav-links a {
+    color: var(--oscuro); text-decoration: none; font-weight: 700; font-size: .9rem;
+    padding: .3rem .9rem; border-radius: 99px; transition: background .2s, color .2s;
+  }
+  .nav-links a:hover { background: var(--verde); color: #fff; }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 1.5rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--verde); text-align: center; margin-bottom: .5rem;
+  }
+  .section-sub {
+    text-align: center; color: #555; font-size: 1.05rem;
+    max-width: 600px; margin: 0 auto 3rem; line-height: 1.7;
+  }
+
+  /* ── CARDS ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .card {
+    background: #fff; border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    overflow: hidden; transition: transform .3s, box-shadow .3s;
+    cursor: pointer;
+  }
+  .card:hover { transform: translateY(-8px); box-shadow: 0 12px 35px rgba(0,0,0,0.14); }
+  .card-icon {
+    font-size: 3.5rem; padding: 1.8rem 1.5rem 1rem;
+    text-align: center; background: var(--gris);
+  }
+  .card-body { padding: 1.2rem 1.5rem 1.5rem; }
+  .card-body h3 { font-family: 'Fredoka One', cursive; font-size: 1.3rem; color: var(--verde); margin-bottom: .5rem; }
+  .card-body p { font-size: .95rem; color: #444; line-height: 1.6; }
+
+  /* ── PLANETA SVG INTERACTIVO ── */
+  #planeta-section { background: linear-gradient(135deg, #e8f5e9, #e3f2fd); }
+  .planeta-wrap {
+    display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; justify-content: center;
+  }
+  .planeta-svg-container {
+    position: relative; flex-shrink: 0;
+  }
+  #planeta-svg { width: min(340px, 90vw); height: min(340px, 90vw); cursor: pointer; }
+  .zona-info {
+    background: #fff; border-radius: 20px; padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1); max-width: 360px;
+    min-height: 200px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .zona-info h3 { font-family: 'Fredoka One', cursive; font-size: 1.5rem; color: var(--verde); margin-bottom: .8rem; }
+  .zona-info p { font-size: 1rem; color: #444; line-height: 1.7; }
+  .zona-info .zona-emoji { font-size: 2.5rem; margin-bottom: .5rem; }
+
+  /* ── QUIZ ── */
+  #quiz-section { background: linear-gradient(135deg, #fff8e1, #fffde7); }
+  .quiz-card {
+    background: #fff; border-radius: 24px; padding: 2.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1); max-width: 680px; margin: 0 auto;
+  }
+  .quiz-progress-bar {
+    height: 8px; background: #e0e0e0; border-radius: 99px; margin-bottom: 2rem; overflow: hidden;
+  }
+  .quiz-progress-fill {
+    height: 100%; background: linear-gradient(90deg, var(--verde), var(--verde-lima));
+    border-radius: 99px; transition: width .4s ease;
+  }
+  .quiz-q { font-size: 1.15rem; font-weight: 700; color: var(--oscuro); margin-bottom: 1.5rem; line-height: 1.6; }
+  .quiz-opts { display: flex; flex-direction: column; gap: .8rem; }
+  .quiz-opt {
+    padding: .9rem 1.3rem; border-radius: 12px;
+    border: 2px solid #e0e0e0; background: #fafafa;
+    cursor: pointer; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 600;
+    transition: all .2s; text-align: left;
+  }
+  .quiz-opt:hover { border-color: var(--verde); background: #e8f5e9; }
+  .quiz-opt.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+  .quiz-opt.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+  .quiz-feedback {
+    margin-top: 1rem; padding: 1rem; border-radius: 12px;
+    font-weight: 700; font-size: .95rem; display: none;
+  }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.ok { background: #d4edda; color: #155724; }
+  .quiz-feedback.fail { background: #f8d7da; color: #721c24; }
+  .quiz-nav { margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+  .quiz-score { font-weight: 800; color: var(--verde); font-size: 1rem; }
+  #quiz-result {
+    text-align: center; display: none;
+  }
+  #quiz-result .result-emoji { font-size: 4rem; }
+  #quiz-result h3 { font-family: 'Fredoka One', cursive; font-size: 2rem; color: var(--verde); }
+  #quiz-result p { color: #555; margin: .5rem 0 1.5rem; }
+
+  /* ── CICLOS ── */
+  #ciclos-section { background: #fff; }
+  .tabs {
+    display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;
+  }
+  .tab-btn {
+    padding: .6rem 1.5rem; border-radius: 99px;
+    border: 2px solid var(--verde); background: transparent;
+    font-family: 'Nunito', sans-serif; font-weight: 700; font-size: .95rem;
+    cursor: pointer; transition: all .2s; color: var(--verde);
+  }
+  .tab-btn.active { background: var(--verde); color: #fff; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; animation: fadeIn .4s ease; }
+  @keyframes fadeIn { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
+
+  .ciclo-layout {
+    display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; justify-content: center;
+  }
+  .ciclo-svg-wrap { flex-shrink: 0; }
+  .ciclo-svg { width: min(320px, 90vw); }
+  .ciclo-pasos { max-width: 400px; }
+  .ciclo-paso {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: .8rem 0; border-bottom: 1px solid #f0f0f0;
+  }
+  .ciclo-paso:last-child { border-bottom: none; }
+  .paso-num {
+    background: var(--verde); color: #fff;
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: .85rem; flex-shrink: 0;
+  }
+  .ciclo-paso p { font-size: .95rem; color: #444; line-height: 1.6; padding-top: .3rem; }
+
+  /* ── ACTIVIDADES ── */
+  #actividades-section { background: linear-gradient(135deg, #f3e5f5, #e8eaf6); }
+  .actividades-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .act-card {
+    background: #fff; border-radius: 20px; padding: 1.8rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-left: 6px solid var(--verde);
+    transition: transform .3s;
+  }
+  .act-card:hover { transform: translateY(-5px); }
+  .act-card .act-icon { font-size: 2.5rem; margin-bottom: .8rem; }
+  .act-card h3 { font-family: 'Fredoka One', cursive; font-size: 1.2rem; color: var(--oscuro); margin-bottom: .5rem; }
+  .act-card p { font-size: .9rem; color: #555; line-height: 1.6; }
+  .act-card .dificultad {
+    display: inline-block; margin-top: .8rem;
+    padding: .2rem .8rem; border-radius: 99px; font-size: .75rem; font-weight: 800;
+  }
+  .facil { background: #d4edda; color: #155724; }
+  .medio { background: #fff3cd; color: #856404; }
+
+  /* ── DATOS CURIOSOS ── */
+  #datos-section { background: #1a2e1a; }
+  #datos-section .section-title { color: var(--verde-lima); }
+  #datos-section .section-sub { color: rgba(255,255,255,0.7); }
+  .datos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .dato-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px; padding: 1.8rem; text-align: center;
+    transition: background .3s, transform .3s;
+  }
+  .dato-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); }
+  .dato-num { font-family: 'Fredoka One', cursive; font-size: 2.8rem; color: var(--verde-lima); }
+  .dato-label { color: rgba(255,255,255,0.8); font-size: .9rem; margin-top: .3rem; line-height: 1.5; }
+
+  /* ── COMPROMISOS ── */
+  #compromisos-section { background: linear-gradient(135deg, #e0f2f1, #e8f5e9); }
+  .compromisos-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+  .compromiso-item {
+    background: #fff; border-radius: 16px; padding: 1.2rem 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    cursor: pointer; transition: all .2s; border: 2px solid transparent;
+    font-weight: 600; font-size: 1rem; color: var(--oscuro);
+  }
+  .compromiso-item.done { border-color: var(--verde); background: #e8f5e9; }
+  .compromiso-item .check-box {
+    width: 28px; height: 28px; border-radius: 8px;
+    border: 2px solid #ccc; flex-shrink: 0; display: flex;
+    align-items: center; justify-content: center; font-size: 1.1rem;
+    transition: all .2s;
+  }
+  .compromiso-item.done .check-box { background: var(--verde); border-color: var(--verde); color: #fff; }
+  .compromisos-counter {
+    text-align: center; margin-top: 2rem;
+    font-family: 'Fredoka One', cursive; font-size: 1.5rem; color: var(--verde);
+  }
+
+  /* ── VIDEO EMBED ── */
+  #videos-section { background: #fff; }
+  .videos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .video-card { border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .video-placeholder {
+    background: linear-gradient(135deg, #1a7040, #1a7db5);
+    padding: 3rem 2rem; text-align: center; cursor: pointer;
+    position: relative; transition: opacity .2s;
+  }
+  .video-placeholder:hover { opacity: .9; }
+  .play-btn {
+    width: 70px; height: 70px; background: rgba(255,255,255,0.9);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; margin: 0 auto 1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+  .video-placeholder h4 { color: #fff; font-family: 'Fredoka One', cursive; font-size: 1.2rem; }
+  .video-placeholder p { color: rgba(255,255,255,0.8); font-size: .85rem; margin-top: .3rem; }
+  .video-card-info { background: #fff; padding: 1rem 1.3rem; }
+  .video-card-info span { font-size: .8rem; color: #888; }
+  .video-card-info p { font-size: .95rem; font-weight: 600; color: var(--oscuro); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0d1f0d; color: rgba(255,255,255,0.7);
+    text-align: center; padding: 2.5rem 1.5rem;
+  }
+  footer .footer-logo { font-family: 'Fredoka One', cursive; font-size: 1.8rem; color: var(--verde-lima); margin-bottom: .5rem; }
+  footer p { font-size: .9rem; line-height: 1.8; }
+  footer a { color: var(--verde-lima); text-decoration: none; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+    z-index: 500; display: none; align-items: center; justify-content: center;
+    padding: 1rem;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: #fff; border-radius: 24px; padding: 2.5rem;
+    max-width: 500px; width: 100%; position: relative;
+    animation: popIn .3s ease;
+  }
+  @keyframes popIn { from{transform:scale(.8);opacity:0;} to{transform:scale(1);opacity:1;} }
+  .modal-close {
+    position: absolute; top: 1rem; right: 1rem;
+    background: #f0f0f0; border: none; border-radius: 50%;
+    width: 36px; height: 36px; font-size: 1.2rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .modal-box h3 { font-family: 'Fredoka One', cursive; font-size: 1.6rem; color: var(--verde); margin-bottom: 1rem; }
+  .modal-box p { font-size: .95rem; color: #444; line-height: 1.7; }
+
+  /* ── RESPONSIVO ── */
+  @media(max-width:600px) {
+    nav { padding: .6rem 1rem; }
+    section { padding: 3.5rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="floating-emojis">
+    <span>🌿</span><span>💧</span><span>🌳</span><span>🦋</span><span>🌸</span><span>🦜</span>
+  </div>
+  <div class="hero-badge">📚 1° de Secundaria · Ciencias Naturales</div>
+  <h1>Nuestro <span>Planeta</span><br>nos Necesita</h1>
+  <p>Explora los ecosistemas, ciclos naturales y aprende cómo TÚ puedes marcar la diferencia para proteger el medio ambiente.</p>
+  <div class="hero-btns">
+    <a href="#temas" class="btn btn-primary">🌱 Comenzar a explorar</a>
+    <a href="#quiz-section" class="btn btn-secondary">🧠 Hacer el quiz</a>
+  </div>
+  <div class="scroll-hint">↓ Desliza para explorar</div>
+</section>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🌍 EcoAprendizaje</div>
+  <div class="nav-links">
+    <a href="#temas">Temas</a>
+    <a href="#planeta-section">Planeta</a>
+    <a href="#ciclos-section">Ciclos</a>
+    <a href="#quiz-section">Quiz</a>
+    <a href="#datos-section">Datos</a>
+    <a href="#compromisos-section">Compromisos</a>
+  </div>
+</nav>
+
+<!-- TEMAS PRINCIPALES -->
+<section id="temas">
+  <div class="container">
+    <h2 class="section-title">🌿 Temas del Medio Ambiente</h2>
+    <p class="section-sub">Haz clic en cada tarjeta para conocer más sobre estos temas fundamentales del medio ambiente.</p>
+    <div class="cards-grid">
+      <div class="card" onclick="openModal('ecosistemas')">
+        <div class="card-icon">🌳</div>
+        <div class="card-body">
+          <h3>Ecosistemas</h3>
+          <p>Un ecosistema es un conjunto de seres vivos que conviven e interactúan entre sí y con su entorno físico. ¡Toca para saber más!</p>
+        </div>
+      </div>
+      <div class="card" onclick="openModal('biodiversidad')">
+        <div class="card-icon">🦁</div>
+        <div class="card-body">
+          <h3>Biodiversidad</h3>
+          <p>La diversidad de vida en la Tierra es increíble: hay millones de especies de plantas, animales, hongos y microorganismos.</p>
+        </div>
+      </div>
+      <div class="card" onclick="openModal('contaminacion')">
+        <div class="card-icon">🏭</div>
+        <div class="card-body">
+          <h3>Contaminación</h3>
+          <p>Las actividades humanas generan residuos que dañan el aire, el agua y el suelo. Conoce sus efectos y cómo combatirla.</p>
+        </div>
+      </div>
+      <div class="card" onclick="openModal('clima')">
+        <div class="card-icon">🌡️</div>
+        <div class="card-body">
+          <h3>Cambio Climático</h3>
+          <p>El planeta se está calentando debido al aumento de gases de efecto invernadero. ¿Qué podemos hacer al respecto?</p>
+        </div>
+      </div>
+      <div class="card" onclick="openModal('agua')">
+        <div class="card-icon">💧</div>
+        <div class="card-body">
+          <h3>El Agua</h3>
+          <p>El agua es un recurso esencial y limitado. Aprende por qué debemos cuidarla y cómo se distribuye en el planeta.</p>
+        </div>
+      </div>
+      <div class="card" onclick="openModal('reciclaje')">
+        <div class="card-icon">♻️</div>
+        <div class="card-body">
+          <h3>Reciclaje y 3R</h3>
+          <p>Reducir, reutilizar y reciclar son acciones que todos podemos hacer para cuidar los recursos naturales del planeta.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANETA INTERACTIVO -->
+<section id="planeta-section">
+  <div class="container">
+    <h2 class="section-title">🌍 Explora el Planeta</h2>
+    <p class="section-sub">Haz clic en las diferentes zonas del planeta para conocer sus características.</p>
+    <div class="planeta-wrap">
+      <div class="planeta-svg-container">
+        <svg id="planeta-svg" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+          <!-- Fondo oceano -->
+          <circle cx="170" cy="170" r="155" fill="#1a7db5" stroke="#0d5c8a" stroke-width="3"/>
+          <!-- Continentes (simplified) -->
+          <ellipse cx="140" cy="130" rx="65" ry="55" fill="#2d8a4e" opacity="0.9" class="zona" data-zona="bosque" style="cursor:pointer"/>
+          <ellipse cx="230" cy="160" rx="50" ry="40" fill="#8bc34a" opacity="0.85" class="zona" data-zona="selva" style="cursor:pointer"/>
+          <ellipse cx="140" cy="220" rx="45" ry="30" fill="#a0522d" opacity="0.85" class="zona" data-zona="desierto" style="cursor:pointer"/>
+          <ellipse cx="200" cy="230" rx="30" ry="20" fill="#2d8a4e" opacity="0.8" class="zona" data-zona="praderas" style="cursor:pointer"/>
+          <!-- Casquetes polares -->
+          <ellipse cx="170" cy="30" rx="60" ry="22" fill="#e3f2fd" opacity="0.9" class="zona" data-zona="polo" style="cursor:pointer"/>
+          <ellipse cx="170" cy="310" rx="60" ry="22" fill="#e3f2fd" opacity="0.9" class="zona" data-zona="polo" style="cursor:pointer"/>
+          <!-- Oceano click zone -->
+          <circle cx="90" cy="200" r="30" fill="transparent" class="zona" data-zona="oceano" style="cursor:pointer"/>
+          <!-- Etiquetas visuales -->
+          <text x="130" y="135" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle" font-family="Nunito" pointer-events="none">Bosque</text>
+          <text x="228" y="163" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle" font-family="Nunito" pointer-events="none">Selva</text>
+          <text x="140" y="224" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle" font-family="Nunito" pointer-events="none">Desierto</text>
+          <text x="200" y="233" fill="#fff" font-size="9" font-weight="bold" text-anchor="middle" font-family="Nunito" pointer-events="none">Prado</text>
+          <text x="170" y="32" fill="#1a7db5" font-size="9" font-weight="bold" text-anchor="middle" font-family="Nunito" pointer-events="none">Ártico</text>
+          <text x="70" y="195" fill="#fff" font-size="9" font-weight="bold" text-anchor="middle" font-family="Nunito" pointer-events="none">Océano</text>
+          <!-- Brillo -->
+          <ellipse cx="130" cy="110" rx="45" ry="35" fill="white" opacity="0.06"/>
+        </svg>
+      </div>
+      <div class="zona-info" id="zona-info">
+        <div class="zona-emoji">👆</div>
+        <h3>¡Toca una zona del planeta!</h3>
+        <p>Haz clic en cualquier área del planeta (bosque, selva, desierto, océano o polos) para conocer sus características y los seres vivos que lo habitan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CICLOS NATURALES -->
+<section id="ciclos-section">
+  <div class="container">
+    <h2 class="section-title">🔄 Ciclos Naturales</h2>
+    <p class="section-sub">La naturaleza funciona en ciclos. Selecciona uno para aprenderlo paso a paso.</p>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('agua-tab', this)">💧 Ciclo del Agua</button>
+      <button class="tab-btn" onclick="showTab('carbono-tab', this)">🌿 Ciclo del Carbono</button>
+      <button class="tab-btn" onclick="showTab('cadena-tab', this)">🦁 Cadena Alimentaria</button>
+    </div>
+
+    <!-- Ciclo del Agua -->
+    <div class="tab-content active" id="agua-tab">
+      <div class="ciclo-layout">
+        <div class="ciclo-svg-wrap">
+          <svg class="ciclo-svg" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#87ceeb"/>
+                <stop offset="100%" stop-color="#e0f7fa"/>
+              </linearGradient>
+            </defs>
+            <!-- Cielo -->
+            <rect width="320" height="280" fill="url(#sky)" rx="16"/>
+            <!-- Montaña -->
+            <polygon points="60,220 160,80 260,220" fill="#6d8b6d"/>
+            <polygon points="130,140 160,80 190,140" fill="white" opacity=".7"/>
+            <!-- Agua/Lago -->
+            <ellipse cx="260" cy="230" rx="55" ry="22" fill="#1a7db5" opacity=".8"/>
+            <!-- Nubes -->
+            <ellipse cx="90" cy="60" rx="45" ry="20" fill="white" opacity=".9"/>
+            <ellipse cx="120" cy="55" rx="35" ry="18" fill="white" opacity=".9"/>
+            <!-- Flechas del ciclo -->
+            <!-- Evaporación -->
+            <path d="M265,208 Q270,140 130,70" fill="none" stroke="#64b5e8" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arr)"/>
+            <!-- Precipitación -->
+            <path d="M90,80 Q70,160 80,220" fill="none" stroke="#1a7db5" stroke-width="2.5" marker-end="url(#arr2)"/>
+            <!-- Escorrentía -->
+            <path d="M80,230 Q170,250 208,232" fill="none" stroke="#0d5c8a" stroke-width="2.5" marker-end="url(#arr3)"/>
+            <!-- Marcadores de flecha -->
+            <defs>
+              <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L8,3 z" fill="#64b5e8"/>
+              </marker>
+              <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L8,3 z" fill="#1a7db5"/>
+              </marker>
+              <marker id="arr3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L8,3 z" fill="#0d5c8a"/>
+              </marker>
+            </defs>
+            <!-- Lluvia -->
+            <line x1="72" y1="92" x2="64" y2="110" stroke="#1a7db5" stroke-width="1.5"/>
+            <line x1="82" y1="92" x2="74" y2="110" stroke="#1a7db5" stroke-width="1.5"/>
+            <line x1="92" y1="90" x2="84" y2="108" stroke="#1a7db5" stroke-width="1.5"/>
+            <!-- Etiquetas -->
+            <text x="270" y="160" fill="#0d5c8a" font-size="10" font-weight="bold" font-family="Nunito" text-anchor="middle">Evaporación</text>
+            <text x="52" y="155" fill="#1a7db5" font-size="10" font-weight="bold" font-family="Nunito" text-anchor="middle">Precipitación</text>
+            <text x="145" y="260" fill="#0d5c8a" font-size="10" font-weight="bold" font-family="Nunito" text-anchor="middle">Escorrentía</text>
+            <text x="160" y="100" fill="#4a6741" font-size="9" font-family="Nunito" text-anchor="middle">Condensación</text>
+          </svg>
+        </div>
+        <div class="ciclo-pasos">
+          <div class="ciclo-paso"><div class="paso-num">1</div><p><strong>Evaporación:</strong> El calor del sol transforma el agua líquida (de ríos, lagos y mares) en vapor de agua que sube al cielo.</p></div>
+          <div class="ciclo-paso"><div class="paso-num">2</div><p><strong>Condensación:</strong> El vapor de agua sube, se enfría y se convierte en gotitas que forman las nubes.</p></div>
+          <div class="ciclo-paso"><div class="paso-num">3</div><p><strong>Precipitación:</strong> Cuando las nubes acumulan suficiente agua, cae en forma de lluvia, nieve o granizo.</p></div>
+          <div class="ciclo-paso"><div class="paso-num">4</div><p><strong>Escorrentía / Infiltración:</strong> El agua corre por la superficie o se filtra en el suelo, regresando a ríos, lagos y mares para comenzar de nuevo.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ciclo del Carbono -->
+    <div class="tab-content" id="carbono-tab">
+      <div class="ciclo-layout">
+        <div class="ciclo-svg-wrap">
+          <svg class="ciclo-svg" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
+            <rect width="320" height="280" fill="#e8f5e9" rx="16"/>
+            <!-- Sol -->
+            <circle cx="260" cy="40" r="25" fill="#f9a825" opacity=".9"/>
+            <line x1="260" y1="10" x2="260" y2="2" stroke="#f9a825" stroke-width="2"/>
+            <line x1="285" y1="20" x2="292" y2="13" stroke="#f9a825" stroke-width="2"/>
+            <line x1="295" y1="45" x2="305" y2="45" stroke="#f9a825" stroke-width="2"/>
+            <!-- Árbol -->
+            <rect x="148" y="160" width="14" height="60" fill="#795548"/>
+            <ellipse cx="155" cy="140" rx="40" ry="35" fill="#2d8a4e"/>
+            <!-- Fábrica -->
+            <rect x="230" y="170" width="60" height="50" fill="#78909c"/>
+            <rect x="240" y="158" width="12" height="22" fill="#546e7a"/>
+            <rect x="262" y="158" width="12" height="22" fill="#546e7a"/>
+            <!-- Humo fábrica -->
+            <ellipse cx="246" cy="150" rx="8" ry="5" fill="#90a4ae" opacity=".7"/>
+            <ellipse cx="268" cy="148" rx="8" ry="5" fill="#90a4ae" opacity=".7"/>
+            <!-- Animal (vaca simplificada) -->
+            <ellipse cx="70" cy="215" rx="28" ry="16" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+            <circle cx="93" cy="208" r="10" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+            <!-- Suelo -->
+            <rect x="0" y="240" width="320" height="40" fill="#8d6e63"/>
+            <!-- CO2 flechas -->
+            <path d="M155,105 Q155,60 240,50" fill="none" stroke="#388e3c" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#ga)"/>
+            <path d="M240,50 Q210,90 190,140" fill="none" stroke="#e53935" stroke-width="2" marker-end="url(#ra)"/>
+            <path d="M85,205 Q110,160 140,155" fill="none" stroke="#e53935" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#ra)"/>
+            <defs>
+              <marker id="ga" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3z" fill="#388e3c"/></marker>
+              <marker id="ra" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3z" fill="#e53935"/></marker>
+            </defs>
+            <text x="155" y="240" fill="white" font-size="9" font-family="Nunito" text-anchor="middle" font-weight="bold">Suelo / Descomposición</text>
+            <text x="205" y="75" fill="#1b5e20" font-size="9" font-family="Nunito" text-anchor="middle">Fotosíntesis</text>
+            <text x="218" y="125" fill="#b71c1c" font-size="9" font-family="Nunito">CO₂</text>
+            <text x="50" y="185" fill="#b71c1c" font-size="9" font-family="Nunito">Respiración</text>
+          </svg>
+        </div>
+        <div class="ciclo-pasos">
+          <div class="ciclo-paso"><div class="paso-num">1</div><p><strong>Fotosíntesis:</strong> Las plantas absorben CO₂ del aire y con la energía del sol lo transforman en azúcares, liberando oxígeno.</p></div>
+          <div class="ciclo-paso"><div class="paso-num">2</div><p><strong>Respiración:</strong> Los animales (y las propias plantas) consumen oxígeno y liberan CO₂ como resultado de su metabolismo.</p></div>
+          <div class="ciclo-paso"><div class="paso-num">3</div><p><strong>Descomposición:</strong> Los hongos y bacterias descomponen la materia orgánica muerta y devuelven el carbono al suelo y al aire.</p></div>
+          <div class="ciclo-paso"><div class="paso-num">4</div><p><strong>Combustión:</strong> La quema de combustibles fósiles (gasolina, carbón) libera enormes cantidades de CO₂ que se acumulan en la atmósfera.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cadena Alimentaria -->
+    <div class="tab-content" id="cadena-tab">
+      <div class="ciclo-layout">
+        <div class="ciclo-svg-wrap">
+          <svg class="ciclo-svg" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg">
+            <rect width="320" height="280" fill="#fff8e1" rx="16"/>
+            <!-- Flechas de cadena -->
+            <line x1="50" y1="140" x2="100" y2="140" stroke="#a5d6a7" stroke-width="4" marker-end="url(#chain)"/>
+            <line x1="160" y1="140" x2="210" y2="140" stroke="#ef9a9a" stroke-width="4" marker-end="url(#chain2)"/>
+            <line x1="270" y1="140" x2="308" y2="140" stroke="#ffcc80" stroke-width="4" marker-end="url(#chain3)"/>
+            <defs>
+              <marker id="chain" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3z" fill="#4caf50"/></marker>
+              <marker id="chain2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3z" fill="#e53935"/></marker>
+              <marker id="chain3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3z" fill="#f57c00"/></marker>
+            </defs>
+            <!-- Planta -->
+            <text x="30" y="145" font-size="38" font-family="Nunito">🌱</text>
+            <!-- Conejo -->
+            <text x="115" y="148" font-size="38" font-family="Nunito">🐇</text>
+            <!-- Zorro -->
+            <text x="215" y="148" font-size="38" font-family="Nunito">🦊</text>
+            <!-- Aguila -->
+            <text x="305" y="148" font-size="38" font-family="Nunito">🦅</text>
+            <!-- Etiquetas niveles -->
+            <text x="38" y="185" fill="#388e3c" font-size="10" font-weight="bold" font-family="Nunito" text-anchor="middle">Productor</text>
+            <text x="133" y="185" fill="#1565c0" font-size="10" font-weight="bold" font-family="Nunito" text-anchor="middle">Consumidor</text>
+            <text x="133" y="198" fill="#1565c0" font-size="10" font-family="Nunito" text-anchor="middle">1°</text>
+            <text x="233" y="185" fill="#b71c1c" font-size="10" font-weight="bold" font-family="Nunito" text-anchor="middle">Consumidor</text>
+            <text x="233" y="198" fill="#b71c1c" font-size="10" font-family="Nunito" text-anchor="middle">2°</text>
+            <text x="317" y="185" fill="#e65100" font-size="10" font-weight="bold" font-family="Nunito" text-anchor="middle">Consumidor</text>
+            <text x="317" y="198" fill="#e65100" font-size="10" font-family="Nunito" text-anchor="middle">3° (cima)</text>
+            <!-- Sol arriba -->
+            <circle cx="160" cy="45" r="22" fill="#f9a825" opacity=".85"/>
+            <text x="160" y="52" font-size="20" text-anchor="middle" font-family="Nunito">☀️</text>
+            <path d="M160,67 Q160,100 38,125" fill="none" stroke="#f9a825" stroke-width="1.5" stroke-dasharray="4,3" opacity=".7"/>
+            <text x="90" y="100" fill="#f57f17" font-size="9" font-family="Nunito">Energía solar</text>
+            <!-- Descomponedores -->
+            <text x="160" y="250" font-size="24" text-anchor="middle" font-family="Nunito">🍄</text>
+            <text x="160" y="270" fill="#5d4037" font-size="9" font-weight="bold" font-family="Nunito" text-anchor="middle">Descomponedores</text>
+            <path d="M160,235 Q200,220 295,185" fill="none" stroke="#8d6e63" stroke-width="1.5" stroke-dasharray="4,3"/>
+          </svg>
+        </div>
+        <div class="ciclo-pasos">
+          <div class="ciclo-paso"><div class="paso-num">🌱</div><p><strong>Productores:</strong> Las plantas fabrican su propio alimento usando la luz solar (fotosíntesis). Son la base de toda cadena alimentaria.</p></div>
+          <div class="ciclo-paso"><div class="paso-num">🐇</div><p><strong>Consumidores 1°:</strong> Herbívoros que comen plantas directamente. Ejemplo: conejos, vacas, insectos.</p></div>
+          <div class="ciclo-paso"><div class="paso-num">🦊</div><p><strong>Consumidores 2°:</strong> Carnívoros que comen herbívoros. Ejemplo: zorros, serpientes, ranas.</p></div>
+          <div class="ciclo-paso"><div class="paso-num">🦅</div><p><strong>Consumidores 3° (cima):</strong> Depredadores que no tienen enemigos naturales. Ejemplo: águilas, leones, orcas.</p></div>
+          <div class="ciclo-paso"><div class="paso-num">🍄</div><p><strong>Descomponedores:</strong> Hongos y bacterias que descomponen la materia muerta y devuelven los nutrientes al suelo.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos-section">
+  <div class="container">
+    <h2 class="section-title">🎬 Videos Recomendados</h2>
+    <p class="section-sub">Estos videos de YouTube explican los temas de manera visual y divertida. ¡Ábrelos en una nueva pestaña!</p>
+    <div class="videos-grid">
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=YbHHs0pa7kI" target="_blank" style="text-decoration:none">
+          <div class="video-placeholder">
+            <div class="play-btn">▶</div>
+            <h4>El Ciclo del Agua</h4>
+            <p>Explicación animada para secundaria</p>
+          </div>
+        </a>
+        <div class="video-card-info">
+          <span>📺 YouTube · Ciencias Naturales</span>
+          <p>Evaporación, condensación y precipitación explicados paso a paso.</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=oX7MkNXmYOE" target="_blank" style="text-decoration:none">
+          <div class="video-placeholder" style="background:linear-gradient(135deg,#1b5e20,#4caf50)">
+            <div class="play-btn">▶</div>
+            <h4>¿Qué es la Biodiversidad?</h4>
+            <p>La riqueza de la vida en la Tierra</p>
+          </div>
+        </a>
+        <div class="video-card-info">
+          <span>📺 YouTube · Biología</span>
+          <p>Descubre por qué proteger la diversidad de especies es crucial.</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=OLdR_-XMQRM" target="_blank" style="text-decoration:none">
+          <div class="video-placeholder" style="background:linear-gradient(135deg,#b71c1c,#f57c00)">
+            <div class="play-btn">▶</div>
+            <h4>Cambio Climático</h4>
+            <p>¿Qué está pasando con nuestro planeta?</p>
+          </div>
+        </a>
+        <div class="video-card-info">
+          <span>📺 YouTube · Medio Ambiente</span>
+          <p>El efecto invernadero, el calentamiento global y sus consecuencias.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz-section">
+  <div class="container">
+    <h2 class="section-title">🧠 ¡Pon a Prueba tu Conocimiento!</h2>
+    <p class="section-sub">Responde las preguntas sobre medio ambiente y descubre cuánto aprendiste.</p>
+    <div class="quiz-card">
+      <div id="quiz-game">
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-fill" id="quiz-bar" style="width:10%"></div>
+        </div>
+        <p id="quiz-question" class="quiz-q">Cargando pregunta...</p>
+        <div class="quiz-opts" id="quiz-opts"></div>
+        <div class="quiz-feedback" id="quiz-feedback"></div>
+        <div class="quiz-nav">
+          <span class="quiz-score" id="quiz-score">✅ Correctas: 0</span>
+          <button class="btn btn-primary" id="quiz-next" onclick="nextQuestion()" style="display:none">Siguiente →</button>
+        </div>
+      </div>
+      <div id="quiz-result">
+        <div class="result-emoji" id="result-emoji">🏆</div>
+        <h3 id="result-title">¡Excelente!</h3>
+        <p id="result-msg"></p>
+        <button class="btn btn-primary" onclick="restartQuiz()">🔄 Jugar de nuevo</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATOS CURIOSOS -->
+<section id="datos-section">
+  <div class="container">
+    <h2 class="section-title">🔬 Datos que te Sorprenderán</h2>
+    <p class="section-sub">El planeta Tierra es increíble. Estos números te van a dejar con la boca abierta.</p>
+    <div class="datos-grid">
+      <div class="dato-card">
+        <div class="dato-num">8.7M</div>
+        <div class="dato-label">Especies estimadas de seres vivos en la Tierra</div>
+      </div>
+      <div class="dato-card">
+        <div class="dato-num">71%</div>
+        <div class="dato-label">Del planeta Tierra es agua, pero solo el 3% es agua dulce</div>
+      </div>
+      <div class="dato-card">
+        <div class="dato-num">1 árbol</div>
+        <div class="dato-label">Puede absorber hasta 22 kg de CO₂ al año durante toda su vida</div>
+      </div>
+      <div class="dato-card">
+        <div class="dato-num">450 años</div>
+        <div class="dato-label">Tarda en degradarse una bolsa de plástico en el medio ambiente</div>
+      </div>
+      <div class="dato-card">
+        <div class="dato-num">50%</div>
+        <div class="dato-label">De los bosques originales del planeta ya han desaparecido</div>
+      </div>
+      <div class="dato-card">
+        <div class="dato-num">1°C</div>
+        <div class="dato-label">Promedio de calentamiento global registrado en el último siglo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVIDADES -->
+<section id="actividades-section">
+  <div class="container">
+    <h2 class="section-title">✏️ Actividades para Hacer en Casa</h2>
+    <p class="section-sub">Aprende haciendo. Estas actividades prácticas refuerzan los conceptos del aula.</p>
+    <div class="actividades-grid">
+      <div class="act-card">
+        <div class="act-icon">🌱</div>
+        <h3>Siembra tu propia planta</h3>
+        <p>Germina una semilla (frijol o maíz) en un vaso con algodón húmedo. Observa su crecimiento durante 2 semanas y lleva un registro con dibujos.</p>
+        <span class="dificultad facil">⭐ Fácil</span>
+      </div>
+      <div class="act-card">
+        <div class="act-icon">💧</div>
+        <h3>Auditoría del agua</h3>
+        <p>Durante un día, registra cuántas veces usas agua (ducha, lavarte manos, etc.) y calcula cuántos litros consumes. ¡Te sorprenderás!</p>
+        <span class="dificultad facil">⭐ Fácil</span>
+      </div>
+      <div class="act-card">
+        <div class="act-icon">🗑️</div>
+        <h3>Mapa de basura</h3>
+        <p>Haz un inventario de la basura que genera tu hogar en un día. Clasifícala en orgánica, plástico, papel y otros. Presenta tus resultados en clase.</p>
+        <span class="dificultad medio">⭐⭐ Medio</span>
+      </div>
+      <div class="act-card">
+        <div class="act-icon">🦋</div>
+        <h3>Diario de naturaleza</h3>
+        <p>Durante una semana, observa y dibuja animales y plantas que veas en tu colonia o patio. Identifica a qué especie pertenecen con ayuda de una guía.</p>
+        <span class="dificultad medio">⭐⭐ Medio</span>
+      </div>
+      <div class="act-card">
+        <div class="act-icon">♻️</div>
+        <h3>Crea papel reciclado</h3>
+        <p>Recicla papel periódico viejo para crear hojas nuevas. Investiga el proceso de reciclaje de papel y preséntalo como proyecto escolar.</p>
+        <span class="dificultad medio">⭐⭐ Medio</span>
+      </div>
+      <div class="act-card">
+        <div class="act-icon">🌡️</div>
+        <h3>Experimento invernadero</h3>
+        <p>Con dos botellas de plástico y un termómetro, crea un modelo del efecto invernadero y mide la diferencia de temperatura. ¡Ciencia en acción!</p>
+        <span class="dificultad medio">⭐⭐ Medio</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPROMISOS -->
+<section id="compromisos-section">
+  <div class="container">
+    <h2 class="section-title">🤝 Mis Compromisos con el Planeta</h2>
+    <p class="section-sub">Selecciona los compromisos que vas a adoptar en tu vida diaria. ¡Cada acción cuenta!</p>
+    <div class="compromisos-list">
+      <div class="compromiso-item" onclick="toggleCompromiso(this)">
+        <div class="check-box"></div>
+        <span>🚿 Ducharme máximo 5 minutos para ahorrar agua</span>
+      </div>
+      <div class="compromiso-item" onclick="toggleCompromiso(this)">
+        <div class="check-box"></div>
+        <span>💡 Apagar las luces cuando salgo de un cuarto</span>
+      </div>
+      <div class="compromiso-item" onclick="toggleCompromiso(this)">
+        <div class="check-box"></div>
+        <span>♻️ Separar mi basura en orgánica e inorgánica</span>
+      </div>
+      <div class="compromiso-item" onclick="toggleCompromiso(this)">
+        <div class="check-box"></div>
+        <span>🛍️ Usar bolsas de tela en lugar de bolsas de plástico</span>
+      </div>
+      <div class="compromiso-item" onclick="toggleCompromiso(this)">
+        <div class="check-box"></div>
+        <span>🚶 Caminar o usar bicicleta para distancias cortas</span>
+      </div>
+      <div class="compromiso-item" onclick="toggleCompromiso(this)">
+        <div class="check-box"></div>
+        <span>🌱 Plantar al menos un árbol o planta este año</span>
+      </div>
+      <div class="compromiso-item" onclick="toggleCompromiso(this)">
+        <div class="check-box"></div>
+        <span>📱 No imprimir documentos que puedo leer en pantalla</span>
+      </div>
+      <div class="compromiso-item" onclick="toggleCompromiso(this)">
+        <div class="check-box"></div>
+        <span>🥦 Comer más verduras y menos carne para reducir emisiones</span>
+      </div>
+    </div>
+    <div class="compromisos-counter" id="compromisos-counter">Has seleccionado 0 de 8 compromisos 🌱</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🌍 EcoAprendizaje</div>
+  <p>Página educativa sobre Medio Ambiente · 1° de Secundaria<br>
+  Recursos: <a href="https://www.nationalgeographic.es/medio-ambiente" target="_blank">National Geographic ES</a> · 
+  <a href="https://www.wwf.es" target="_blank">WWF España</a> · 
+  <a href="https://www.gob.mx/semarnat" target="_blank">SEMARNAT México</a><br>
+  <small>Imágenes e íconos: SVG propios y emojis Unicode. Videos referenciados de YouTube. Uso educativo sin fines de lucro.</small></p>
+  <small>Hecho por Iker Alejandro Alvarez Dominguez</small></p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModalOnOverlay(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3 id="modal-title"></h3>
+    <p id="modal-content"></p>
+  </div>
+</div>
+
+<script>
+// ──────────────────────────────────────────────
+// MODAL DATA
+// ──────────────────────────────────────────────
+const modalData = {
+  ecosistemas: {
+    title: '🌳 Ecosistemas',
+    content: 'Un ecosistema es un sistema formado por los seres vivos (biocenosis) que habitan en un lugar y el medio físico que los rodea (biotopo). Los ecosistemas pueden ser terrestres (selvas, desiertos, praderas) o acuáticos (ríos, mares, lagunas). En cada ecosistema los organismos interactúan entre sí mediante relaciones como la depredación, el mutualismo o la competencia. La destrucción de ecosistemas es una de las principales causas de pérdida de biodiversidad en el planeta.'
+  },
+  biodiversidad: {
+    title: '🦁 Biodiversidad',
+    content: 'La biodiversidad es la variedad de formas de vida que existe en la Tierra: plantas, animales, hongos, bacterias y otros microorganismos. Se calcula que existen entre 8 y 10 millones de especies, aunque solo se han descrito alrededor de 1.7 millones. México es uno de los países más biodiversos del mundo, con miles de especies endémicas. La pérdida de biodiversidad afecta los servicios ecosistémicos como la polinización, la purificación del agua y el control de plagas.'
+  },
+  contaminacion: {
+    title: '🏭 Contaminación',
+    content: 'La contaminación ocurre cuando sustancias dañinas entran al ambiente en cantidades que alteran el equilibrio natural. Puede ser del aire (gases de fábricas y vehículos), del agua (vertidos industriales y basura) o del suelo (pesticidas y residuos). En México, las ciudades más grandes enfrentan graves problemas de contaminación del aire. Las consecuencias incluyen enfermedades respiratorias, pérdida de biodiversidad y deterioro de ecosistemas acuáticos.'
+  },
+  clima: {
+    title: '🌡️ Cambio Climático',
+    content: 'El cambio climático es la alteración del clima de la Tierra causada principalmente por el aumento de gases de efecto invernadero (CO₂, metano) producidos por actividades humanas como quemar combustibles fósiles y deforestar. Sus consecuencias incluyen el aumento de temperaturas, derretimiento de glaciares, elevación del nivel del mar, eventos climáticos extremos (huracanes más intensos, sequías) y extinción de especies. Reducir las emisiones de carbono es urgente para frenar este proceso.'
+  },
+  agua: {
+    title: '💧 El Agua',
+    content: 'El agua cubre el 71% de la superficie terrestre, pero el 97% es agua salada de los océanos. Del 3% restante de agua dulce, solo el 1% está disponible para el consumo humano (el resto está en glaciares o capas subterráneas profundas). El acceso al agua potable es un derecho humano, pero más de 2 mil millones de personas en el mundo no tienen acceso seguro a ella. En México, zonas como el norte del país (¡incluyendo Monterrey!) enfrentan situaciones de escasez hídrica que requieren un uso responsable.'
+  },
+  reciclaje: {
+    title: '♻️ Reciclaje y las 3R',
+    content: 'Las 3R son una estrategia para reducir el impacto ambiental de los residuos: REDUCIR (consumir menos y evitar el desperdicio), REUTILIZAR (dar nueva vida a objetos antes de tirarlos) y RECICLAR (transformar residuos en nuevas materias primas). El reciclaje de una tonelada de papel salva 17 árboles y ahorra 26,000 litros de agua. El plástico tarda entre 100 y 1,000 años en degradarse. Separar correctamente la basura es el primer paso que puedes dar desde hoy mismo.'
+  }
+};
+
+function openModal(tipo) {
+  const d = modalData[tipo];
+  document.getElementById('modal-title').textContent = d.title;
+  document.getElementById('modal-content').textContent = d.content;
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+function closeModalOnOverlay(e) { if (e.target === document.getElementById('modal')) closeModal(); }
+
+// ──────────────────────────────────────────────
+// PLANETA INTERACTIVO
+// ──────────────────────────────────────────────
+const zonaData = {
+  bosque: {
+    emoji: '🌲',
+    title: 'Bosque Templado',
+    text: 'Los bosques templados cubren gran parte de Europa, América del Norte y Asia. Tienen estaciones marcadas y una gran diversidad de árboles caducifolios (que pierden sus hojas en otoño). Albergan mamíferos como el oso pardo, el lobo y el venado. Son fundamentales para capturar CO₂ y regular el agua.'
+  },
+  selva: {
+    emoji: '🌴',
+    title: 'Selva Tropical',
+    text: 'Las selvas tropicales son los ecosistemas más biodiversos del planeta. El Amazonas alberga el 10% de todas las especies conocidas. Se caracterizan por lluvias abundantes y temperaturas altas durante todo el año. Producen más del 20% del oxígeno de la Tierra y regulan el clima global.'
+  },
+  desierto: {
+    emoji: '🏜️',
+    title: 'Desierto',
+    text: 'Los desiertos reciben menos de 250 mm de lluvia al año. Aunque parecen inhóspitos, albergan especies increíblemente adaptadas: cactus, escorpiones, víboras de cascabel y zorros del desierto. El Desierto de Chihuahua es uno de los más biodiversos del mundo y cubre parte del norte de México.'
+  },
+  praderas: {
+    emoji: '🌾',
+    title: 'Praderas y Pastizales',
+    text: 'Las praderas son ecosistemas dominados por gramíneas y hierbas. Son hábitat de grandes herbívoros como bisontes y antílopes. El suelo de las praderas es muy fértil, por lo que muchas se han convertido en tierras agrícolas. México tiene importantes pastizales en Chihuahua y Sonora.'
+  },
+  polo: {
+    emoji: '🧊',
+    title: 'Regiones Polares',
+    text: 'El Ártico y la Antártida son los ecosistemas más fríos del planeta. A pesar del frío extremo, albergan osos polares, pingüinos, focas y ballenas. Los casquetes polares contienen el 70% del agua dulce de la Tierra. El cambio climático está derritiendo estos hielos a una velocidad alarmante, lo que eleva el nivel del mar.'
+  },
+  oceano: {
+    emoji: '🌊',
+    title: 'Océanos',
+    text: 'Los océanos cubren el 71% de la Tierra y regulan el clima, producen el 50% del oxígeno del planeta y absorben el 30% del CO₂. Albergan desde el plancton microscópico hasta la ballena azul (el animal más grande que ha existido). La contaminación por plásticos y la pesca excesiva amenazan gravemente estos ecosistemas.'
+  }
+};
+
+document.querySelectorAll('.zona').forEach(el => {
+  el.addEventListener('click', function() {
+    const tipo = this.dataset.zona;
+    const d = zonaData[tipo];
+    const info = document.getElementById('zona-info');
+    info.innerHTML = `<div class="zona-emoji">${d.emoji}</div><h3>${d.title}</h3><p>${d.text}</p>`;
+    // Animación
+    info.style.opacity = 0;
+    setTimeout(() => { info.style.transition = 'opacity .3s'; info.style.opacity = 1; }, 10);
+  });
+});
+
+// ──────────────────────────────────────────────
+// TABS
+// ──────────────────────────────────────────────
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ──────────────────────────────────────────────
+// QUIZ
+// ──────────────────────────────────────────────
+const questions = [
+  { q: '¿Cuál es el principal gas que produce el efecto invernadero y está aumentando por actividades humanas?', opts: ['Nitrógeno (N₂)', 'Dióxido de carbono (CO₂)', 'Argón (Ar)', 'Helio (He)'], ans: 1, exp: '¡Correcto! El CO₂ es el principal gas de efecto invernadero que aumenta por la quema de combustibles fósiles y la deforestación.' },
+  { q: '¿Cómo se llama el proceso por el cual el agua líquida se convierte en vapor de agua?', opts: ['Condensación', 'Precipitación', 'Evaporación', 'Infiltración'], ans: 2, exp: '¡Exacto! La evaporación ocurre cuando el calor transforma el agua líquida en vapor, que sube hacia la atmósfera.' },
+  { q: '¿Qué porcentaje del agua del planeta es agua dulce disponible para el consumo?', opts: ['Aproximadamente el 50%', 'Aproximadamente el 25%', 'Aproximadamente el 10%', 'Aproximadamente el 1%'], ans: 3, exp: '¡Correcto! Aunque el 71% del planeta es agua, solo el 3% es dulce y de ese porcentaje, apenas el 1% está accesible para nosotros.' },
+  { q: '¿Cuál es el orden correcto de una cadena alimentaria simple?', opts: ['Conejo → Planta → Zorro', 'Planta → Zorro → Conejo', 'Planta → Conejo → Zorro', 'Sol → Conejo → Planta'], ans: 2, exp: '¡Muy bien! Las plantas son los productores, luego vienen los herbívoros (conejo) y después los carnívoros (zorro).' },
+  { q: '¿Qué significa la "R" de Reutilizar en las 3R del medio ambiente?', opts: ['Reciclar los materiales en fábricas', 'Dar nueva vida a un objeto antes de tirarlo', 'Reducir la compra de productos nuevos', 'Reforestar los bosques talados'], ans: 1, exp: '¡Correcto! Reutilizar significa usar un objeto de nuevo o darle un nuevo uso antes de desecharlo.' },
+  { q: '¿Cuál de los siguientes es un ejemplo de ecosistema acuático?', opts: ['Desierto de Sonora', 'Selva amazónica', 'Arrecife de coral', 'Pradera patagónica'], ans: 2, exp: '¡Exacto! Los arrecifes de coral son ecosistemas acuáticos marinos, hogar de una inmensa biodiversidad.' },
+  { q: '¿Qué organismo realiza la fotosíntesis para producir su propio alimento?', opts: ['El conejo', 'La bacteria descomponedora', 'El árbol (planta)', 'El águila'], ans: 2, exp: '¡Correcto! Las plantas (como los árboles) son los únicos productores: fabrican alimento usando luz solar, CO₂ y agua.' },
+  { q: 'Aproximadamente, ¿cuántos años tarda en degradarse una bolsa de plástico en la naturaleza?', opts: ['5 años', '50 años', '450 años', '4,500 años'], ans: 2, exp: '¡Impresionante! Una bolsa de plástico puede tardar entre 400 y 1,000 años en degradarse, liberando microplásticos dañinos.' },
+];
+
+let currentQ = 0, score = 0, answered = false;
+
+function renderQuestion() {
+  const q = questions[currentQ];
+  document.getElementById('quiz-question').textContent = `${currentQ + 1}. ${q.q}`;
+  const opts = document.getElementById('quiz-opts');
+  opts.innerHTML = '';
+  q.opts.forEach((o, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-opt';
+    btn.textContent = o;
+    btn.onclick = () => selectAnswer(i);
+    opts.appendChild(btn);
+  });
+  document.getElementById('quiz-bar').style.width = `${((currentQ + 1) / questions.length) * 100}%`;
+  document.getElementById('quiz-feedback').className = 'quiz-feedback';
+  document.getElementById('quiz-feedback').textContent = '';
+  document.getElementById('quiz-next').style.display = 'none';
+  answered = false;
+}
+
+function selectAnswer(idx) {
+  if (answered) return;
+  answered = true;
+  const q = questions[currentQ];
+  const opts = document.querySelectorAll('.quiz-opt');
+  const fb = document.getElementById('quiz-feedback');
+  opts.forEach(o => o.style.pointerEvents = 'none');
+  if (idx === q.ans) {
+    score++;
+    opts[idx].classList.add('correct');
+    fb.textContent = '✅ ' + q.exp;
+    fb.className = 'quiz-feedback show ok';
+  } else {
+    opts[idx].classList.add('wrong');
+    opts[q.ans].classList.add('correct');
+    fb.textContent = '❌ Respuesta incorrecta. ' + q.exp;
+    fb.className = 'quiz-feedback show fail';
+  }
+  document.getElementById('quiz-score').textContent = `✅ Correctas: ${score}`;
+  document.getElementById('quiz-next').style.display = 'inline-block';
+}
+
+function nextQuestion() {
+  currentQ++;
+  if (currentQ < questions.length) {
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  document.getElementById('quiz-game').style.display = 'none';
+  document.getElementById('quiz-result').style.display = 'block';
+  const pct = Math.round((score / questions.length) * 100);
+  let emoji = '🌱', title = '¡Sigue aprendiendo!', msg = '';
+  if (pct >= 85) { emoji = '🏆'; title = '¡Experto en Medio Ambiente!'; }
+  else if (pct >= 60) { emoji = '🌟'; title = '¡Muy bien! Vas por buen camino'; }
+  msg = `Obtuviste ${score} de ${questions.length} respuestas correctas (${pct}%). Sigue explorando los temas de esta página para convertirte en un guardián del planeta.`;
+  document.getElementById('result-emoji').textContent = emoji;
+  document.getElementById('result-title').textContent = title;
+  document.getElementById('result-msg').textContent = msg;
+}
+
+function restartQuiz() {
+  currentQ = 0; score = 0; answered = false;
+  document.getElementById('quiz-game').style.display = 'block';
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('quiz-score').textContent = '✅ Correctas: 0';
+  renderQuestion();
+}
+
+renderQuestion();
+
+// ──────────────────────────────────────────────
+// COMPROMISOS
+// ──────────────────────────────────────────────
+function toggleCompromiso(el) {
+  el.classList.toggle('done');
+  const check = el.querySelector('.check-box');
+  check.textContent = el.classList.contains('done') ? '✓' : '';
+  const total = document.querySelectorAll('.compromiso-item.done').length;
+  const msgs = ['Has seleccionado 0 de 8 compromisos 🌱','¡1 compromiso! Cada paso cuenta 🌿','¡2 compromisos! Vas bien 🌿🌿','¡3 compromisos! Estás marcando la diferencia 🌳','¡4 compromisos! A mitad del camino 💪','¡5 compromisos! ¡Eres un eco-héroe en formación! 🦸','¡6 compromisos! El planeta te lo agradece 🌍','¡7 compromisos! ¡Casi guardián del planeta! 🌟','¡8 compromisos! ¡Eres un auténtico guardián del planeta! 🏆🌍'];
+  document.getElementById('compromisos-counter').textContent = msgs[total];
+}
+</script>
+</body>
+</html>
